@@ -1,0 +1,146 @@
+// 1. Орделить день недели по номеру
+fun main() {
+    // 1. День недели по номеру
+    fun getDayOfWeek(dayNumber: Int): String {
+        return when (dayNumber) {
+            1 -> "Понедельник"
+            2 -> "Вторник"
+            3 -> "Среда"
+            4 -> "Четверг"
+            5 -> "Пятница"
+            6 -> "Суббота"
+            7 -> "Воскресенье"
+            else -> "Некорректный номер дня"
+        }
+    }
+    println("День недели: ${getDayOfWeek(3)}")
+
+
+    // 2. Тип треугольника по длинам сторон
+    fun getTriangleType(a: Double, b: Double, c: Double): String {
+        return when {
+            a <= 0 || b <= 0 || c <= 0 -> "Некорректные длины сторон"
+            a + b <= c || a + c <= b || b + c <= a -> "Треугольник не существует"
+            a == b && b == c -> "Равносторонний"
+            a == b || a == c || b == c -> "Равнобедренный"
+            else -> "Разносторонний"
+        }
+    }
+    println("Тип треугольника: ${getTriangleType(5.0, 5.0, 5.0)}")
+
+
+    // 3. Вывод оценок по числовым значениям
+    fun getGrade(score: Int): String {
+        return when (score) {
+            in 90..100 -> "A"
+            in 80..89 -> "B"
+            in 70..79 -> "C"
+            in 60..69 -> "D"
+            else -> "F"
+        }
+    }
+    println("Оценка: ${getGrade(85)}")
+
+
+    // 4. Время суток
+    fun getTimeOfDay(hour: Int): String {
+        return when (hour) {
+            in 6..11 -> "Утро"
+            in 12..17 -> "День"
+            in 18..22 -> "Вечер"
+            else -> "Ночь"
+        }
+    }
+    println("Время суток: ${getTimeOfDay(23)}")
+
+
+    // 5. Знак числа
+    fun getSign(number: Int): String {
+        return when {
+            number > 0 -> "Положительное"
+            number < 0 -> "Отрицательное"
+            else -> "Нулевое"
+        }
+    }
+    println("Знак числа: ${getSign(-5)}")
+
+
+    // 6. Угадай число 
+    fun guessNumber(number: Int): String {
+        val secretNumber = 7
+        return when {
+            number == secretNumber -> "Вы угадали!"
+            else -> "Вы не угадали."
+        }
+
+    }
+    println("Результат: ${guessNumber(7)}")
+
+
+    // 7. Длина строки
+    fun getStringLength(str: String): Int {
+        return str.length
+    }
+    println("Длина строки: ${getStringLength("Привет")}")
+
+
+    // 8. Время приготовления по типу пищи 
+    fun getCookingTime(foodType: String): String {
+        return when (foodType) {
+            "Паста" -> "15 минут"
+            "Суп" -> "30 минут"
+            "Плов" -> "45 минут"
+            else -> "Неизвестно"
+        }
+    }
+    println("Время приготовления: ${getCookingTime("Плов")}")
+
+
+    // 9. Способы оплаты
+    fun getPaymentMessage(paymentMethod: String): String {
+        return when (paymentMethod) {
+            "Карта" -> "Оплата картой принята."
+            "Наличные" -> "Оплата наличными принята."
+            "Электронные деньги" -> "Оплата электронными деньгами принята."
+            else -> "Неизвестный способ оплаты."
+        }
+    }
+    println("Сообщение об оплате: ${getPaymentMessage("Карта")}")
+
+
+    // 10. Группы крови 
+    fun getBloodTransfusion(bloodGroup: String): String {
+        return when (bloodGroup) {
+            "O" -> "Можно переливать O"
+            "A" -> "Можно переливать A, O"
+            "B" -> "Можно переливать B, O"
+            "AB" -> "Можно переливать A, B, AB, O"
+            else -> "Неизвестная группа крови"
+        }
+    }
+    println("Переливание крови: ${getBloodTransfusion("AB")}")
+
+
+    // 11. Национальности по странам 
+    fun getNationality(country: String): String {
+        return when (country) {
+            "Россия" -> "Русский"
+            "США" -> "Американец"
+            "Франция" -> "Француз"
+            else -> "Неизвестно"
+        }
+    }
+    println("Национальность: ${getNationality("Франция")}")
+
+
+    // 12. Коды ошибок
+    fun getErrorMessage(errorCode: Int): String {
+        return when (errorCode) {
+            404 -> "Страница не найдена"
+            500 -> "Внутренняя ошибка сервера"
+            403 -> "Доступ запрещен"
+            else -> "Неизвестная ошибка"
+}
+    }
+    println("Сообщение об ошибке: ${getErrorMessage(404)}")
+}
