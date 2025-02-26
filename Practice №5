@@ -1,0 +1,472 @@
+//1. Вывод чисел от 1 до 10:
+
+
+fun main() {
+    for (i in 1..10) {
+        println(i)
+    }
+}
+
+
+//2. Вывод четных чисел от 1 до 20:
+
+
+fun main() {
+    for (i in 2..20 step 2) {
+        println(i)
+    }
+}
+
+
+//3. Сумма чисел от 1 до N:
+
+
+fun main() {
+    print("Введите число N: ")
+    val n = readLine()?.toIntOrNull() ?: 
+    val sum = (1..n).sum() 
+    println("Сумма чисел от 1 до $n: $sum")
+}
+
+
+//4. Факториал числа:
+
+
+fun main() {
+    print("Введите число: ")
+    val n = readLine()?.toIntOrNull() ?: 
+    var factorial = 1L // Используем Long для больших чисел
+    for (i in 1..n) {
+        factorial = i
+    }
+    println("Факториал $n: $factorial")
+}
+
+
+//5. Проверка числа на простоту:
+
+
+fun main() {
+    print("Введите число: ")
+    val n = readLine()?.toIntOrNull() ?: 2 //Обработка ошибок ввода
+
+    var isPrime = true
+    if (n <= 1) isPrime = false
+    else if (n > 2) {
+        for (i in 2 until n) {
+            if (n % i == 0) {
+                isPrime = false
+                break
+            }
+        }
+    }
+    println("$n ${if (isPrime) "простое" else "не простое"}")
+
+}
+
+
+//6. Вывод таблицы умножения:
+
+
+fun main() {
+    for (i in 1..10) {
+        for (j in 1..10) {
+            print("${i  j}\t")
+        }
+        println()
+    }
+}
+
+//7. Фибоначчи:
+
+
+fun main() {
+    print("Введите N: ")
+    val n = readLine()?.toIntOrNull() ?: 0 //Обработка ошибок ввода
+    var a = 0
+    var b = 1
+    for (i in 1..n) {
+        print("$a ")
+        val temp = a
+        a = b
+        b = temp + b
+    }
+    println()
+}
+
+
+//8. Наибольший общий делитель (НОД):
+
+
+fun main() {
+    print("Введите первое число: ")
+    val a = readLine()?.toIntOrNull() ?: 0 //Обработка ошибок ввода
+    print("Введите второе число: ")
+    val b = readLine()?.toIntOrNull() ?: 0 //Обработка ошибок ввода
+    var x = a
+    var y = b
+    while (y != 0) {
+        val temp = y
+        y = x % y
+        x = temp
+    }
+    println("НОД($a, $b) = $x")
+}
+```
+
+//9. Обратный порядок:
+
+
+fun main() {
+    print("Введите строку: ")
+    val str = readLine() ?: ""
+    println(str.reversed())
+}
+
+
+//10. Сумма цифр числа:
+
+
+fun main() {
+    print("Введите число: ")
+    val numStr = readLine() ?: "0"
+    var sum = 0
+    for (digit in numStr) {
+        if (digit.isDigit()) {
+            sum += digit.digitToInt()
+        }
+    }
+    println("Сумма цифр: $sum")
+}
+
+
+//11. Анаграммы:
+
+fun main() {
+    print("Введите первую строку: ")
+    val str1 = readLine()?.lowercase() ?: ""
+    print("Введите вторую строку: ")
+    val str2 = readLine()?.lowercase() ?: ""
+    println("${str1} и ${str2} ${if (str1.toCharArray().sortedArray().contentEquals(str2.toCharArray().sortedArray())) "анаграммы" else "не анаграммы"}")
+}
+
+
+//12. Числовая последовательность:
+
+
+fun main() {
+    print("Введите начальное число: ")
+    val start = readLine()?.toIntOrNull() ?: 0
+    print("Введите шаг: ")
+    val step = readLine()?.toIntOrNull() ?: 1
+    print("Введите количество элементов: ")
+    val count = readLine()?.toIntOrNull() ?: 0
+
+    for (i in 0 until count) {
+        print("${start + i  step} ")
+    }
+    println()
+}
+
+
+//13. Таблица квадратов:
+
+
+//fun main() {
+    for (i in 1..20) {
+        println("${i}² = ${i  i}")
+    }
+}
+
+
+//14. Генерация случайных чисел:
+
+
+fun main() {
+    for (i in 1..10) {
+        println(Random.nextInt(1, 101))
+    }
+}
+
+
+//15. Проверка палиндрома:
+
+
+fun main() {
+    print("Введите строку: ")
+    val str = readLine()?.lowercase()?.filter { it.isLetterOrDigit() } ?: ""
+    println("$str ${if (str == str.reversed()) "палиндром" else "не палиндром"}")
+}
+
+//16. Сигма (сумма квадратов):
+
+
+fun main() {
+    print("Введите N: ")
+    val n = readLine()?.toIntOrNull() ?: 0
+    val sum = (1..n).sumOf { it  it }
+    println("Сумма квадратов от 1 до $n: $sum")
+}
+
+
+//17. Вывод символов:
+
+
+fun main() {
+    print("Введите строку: ")
+    val str = readLine() ?: ""
+    for (char in str) {
+        println(char)
+    }
+}
+
+
+//18. Задача на лестницу:
+
+
+fun main() {
+    print("Введите высоту лестницы: ")
+    val n = readLine()?.toIntOrNull() ?: 0
+    for (i in 1..n) {
+        println("#".repeat(i))
+    }
+}
+
+
+//19. Сортировка списка (пузырьковая сортировка - для демонстрации):
+
+
+fun main() {
+    val numbers = mutableListOf(12, 5, 98, 23, 45, 76, 11, 89)
+    var swapped: Boolean
+
+    do {
+        swapped = false
+        for (i in 0 until numbers.size - 1) {
+            if (numbers[i] > numbers[i + 1]) {
+                val temp = numbers[i]
+                numbers[i] = numbers[i + 1]
+                numbers[i + 1] = temp
+                swapped = true
+            }
+        }
+    } while (swapped)
+
+    println("Отсортированный список: $numbers")
+}
+
+
+//20. Простые числа в диапазоне:
+
+
+fun main() {
+    print("Введите начало диапазона: ")
+    val start = readLine()?.toIntOrNull() ?: 2
+    print("Введите конец диапазона: ")
+    val end = readLine()?.toIntOrNull() ?: 2
+
+    for (num in start..end) {
+        if (isPrime(num)) {
+            print("$num ")
+        }
+    }
+    println()
+}
+
+fun isPrime(num: Int): Boolean {
+    if (num <= 1) return false
+    for (i in 2 until num) {
+        if (num % i == 0) return false
+    }
+    return true
+}
+
+
+//21. Вывод дат:
+
+
+
+fun main() {
+    print("Введите год: ")
+    val year = readLine()?.toIntOrNull() ?: 2024
+    print("Введите месяц (1-12): ")
+    val month = readLine()?.toIntOrNull() ?: 10
+
+    val yearMonth = YearMonth.of(year, month)
+    val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy")
+
+    val firstDay = yearMonth.atDay(1)
+    val lastDay = yearMonth.atEndOfMonth()
+
+    for (date in firstDay..lastDay) {
+        println(date.format(formatter))
+    }
+}
+
+
+//22. Угадай число:
+
+fun main() {
+    val secretNumber = Random.nextInt(1, 101)
+    var guess: Int
+    var attempts = 0
+
+    println("Угадайте число от 1 до 100!")
+
+    do {
+        print("Ваш ход: ")
+        guess = readLine()?.toIntOrNull() ?: 0
+        attempts++
+
+        if (guess < secretNumber) {
+            println("Слишком мало!")
+        } else if (guess > secretNumber) {
+            println("Слишком много!")
+        }
+    } while (guess != secretNumber)
+
+    println("Поздравляю! Вы угадали число $secretNumber за $attempts попыток!")
+}
+
+
+//23. Сложение и умножение:
+
+
+fun main() {
+    do {
+        print("Введите операцию (+, , стоп): ")
+        val operation = readLine() ?: ""
+        if (operation.lowercase() == "стоп") break
+
+        print("Введите первое число: ")
+        val num1 = readLine()?.toIntOrNull() ?: 0
+        print("Введите второе число: ")
+        val num2 = readLine()?.toIntOrNull() ?: 0
+
+        val result = when (operation) {
+            "+" -> num1 + num2
+            "" -> num1  num2
+            else -> 0
+        }
+        println("Результат: $result")
+    } while (true)
+}
+
+
+//24. Транспонирование матрицы:
+
+
+fun main() {
+    val matrix = arrayOf(
+        intArrayOf(1, 2, 3),
+        intArrayOf(4, 5, 6),
+        intArrayOf(7, 8, 9)
+    )
+
+    val transposedMatrix = Array(matrix[0].size) { IntArray(matrix.size) }
+    for (i in matrix.indices) {
+        for (j in matrix[i].indices) {
+            transposedMatrix[j][i] = matrix[i][j]
+        }
+    }
+
+    println("Исходная матрица:")
+    printMatrix(matrix)
+    println("Транспонированная матрица:")
+    printMatrix(transposedMatrix)
+}
+
+fun printMatrix(matrix: Array<IntArray>) {
+    for (row in matrix) {
+        println(row.contentToString())
+    }
+}
+
+
+//25. Кубы чисел:
+
+
+fun main() {
+    for (i in 1..10) {
+        println("${i}^3 = ${i  i  i}")
+    }
+}
+
+
+//26. Сумма четных и нечетных чисел:
+
+fun main() {
+    print("Введите N: ")
+    val n = readLine()?.toIntOrNull() ?: 0
+    var sumEven = 0
+    var sumOdd = 0
+    for (i in 1..n) {
+        if (i % 2 == 0) {
+            sumEven += i
+        } else {
+            sumOdd += i
+        }
+    }
+    println("Сумма четных: $sumEven")
+    println("Сумма нечетных: $sumOdd")
+}
+
+
+//27. Печать числа "пирамида":
+
+
+fun main() {
+    print("Введите N: ")
+    val n = readLine()?.toIntOrNull() ?: 0
+    var num = 1
+    for (i in 1..n) {
+        for (j in 1..i) {
+            print("$num ")
+            num++
+        }
+        println()
+    }
+}
+
+
+//28. Определение порядка: 
+
+fun main() {
+    print("Введите количество чисел: ")
+    val n = readLine()?.toIntOrNull() ?: 0
+    val numbers = mutableListOf<Int>()
+for (i in 1..n) {
+        print("Введите число $i: ")
+        val num = readLine()?.toIntOrNull() ?: 0
+        numbers.add(num)
+    }
+    numbers.sort()
+    println("Отсортированные числа: ${numbers.joinToString(" ")}")
+}
+
+//29. Сумма ряда:
+
+
+fun main() {
+    print("Введите N: ")
+    val n = readLine()?.toIntOrNull() ?: 1
+    var sum = 0.0
+    for (i in 1..n) {
+        sum += 1.0 / i
+    }
+    println("Сумма ряда: $sum")
+}
+
+
+//30. Конвертация в двоичную систему:
+
+fun main() {
+    print("Введите целое число: ")
+    val decimal = readLine()?.toIntOrNull() ?: 0
+    println("Двоичное представление: ${Integer.toBinaryString(decimal)}")
+}
+
+
+
+
+
