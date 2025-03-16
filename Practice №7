@@ -1,0 +1,81 @@
+//1.Создайте пустой список строк и добавьте в него пять элементов с помощью метода add 
+
+fun main() {
+    val stringList = mutableListOf<String>()
+    stringList.add("Первый")
+    stringList.add("Второй")
+    stringList.add("Третий")
+    stringList.add("Четвертый")
+    stringList.add("Пятый")
+    
+    println("Список строк: $stringList")
+}
+
+
+//2.Проверьте, содержится ли заданное значение в списке строк, и выведите результат. 
+
+fun main() {
+    val stringList = listOf("Первый", "Второй", "Третий", "Четвертый", "Пятый")
+    val valueToCheck = "Третий"
+    val containsValue = stringList.contains(valueToCheck)
+    
+    println("Содержится ли '$valueToCheck' в списке: $containsValue")
+}
+
+//3.Переберите все элементы списка целых чисел с помощью цикла for и выведите каждый элемент.
+
+fun main() {
+    val intList = listOf(1, 2, 3, 4, 5)
+    for (number in intList) {
+        println(number)
+    }
+}
+
+//4.Отсортируйте список целых чисел в порядке возрастания и выведите отсортированный список. 
+
+fun main() {
+    val intList = mutableListOf(5, 3, 1, 4, 2)
+    intList.sort()
+    println("Отсортированный список: $intList")
+}
+
+//5.Создайте новый список, содержащий только четные числа из исходного списка целых чисел.
+
+fun main() {
+    val intList = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    val evenList = intList.filter { it % 2 == 0 }
+    
+    println("Четные числа: $evenList")
+}
+
+//6. Подсчитайте количество элементов в списке строк, которые начинаются с заданной буквы.
+
+fun main() {
+    val stringList = listOf("Алексей", "Борис", "Анна", "Виктор", "Анастасия")
+    val letter = 'А'
+    val count = stringList.count { it.startsWith(letter) }
+    
+    println("Количество строк, начинающихся с '$letter': $count")
+}
+
+//7.Изменить знак для всех положительных элементов списка 
+
+fun main() {
+    val intList = mutableListOf(-1, 2, -3, 4, -5)
+    for (i in intList.indices) {
+        if (intList[i] > 0) {
+            intList[i] = -intList[i]
+        }
+    }
+    
+    println("Список с измененными знаками: $intList")
+}
+
+//8.Из имеющегося списка целых чисел, сформировать список их квадратов 
+
+fun main() {
+    val intList = listOf(1, 2, 3, 4, 5)
+    val squaresList = intList.map { it * it }
+    
+    println("Список квадратов: $squaresList")
+}
