@@ -1,0 +1,41 @@
+// 1.Консольный калькулятор
+
+fun main() {
+    println("Консольный калькулятор")
+    
+    print("Введите первое число: ")
+    val num1 = readLine()!!.toDouble()
+
+    print("Введите второе число: ")
+    val num2 = readLine()!!.toDouble()
+
+    println("Выберите операцию: +, -, *, /")
+    val operation = readLine()
+
+    val result = when (operation) {
+        "+" -> num1 + num2
+        "-" -> num1 - num2
+        "*" -> num1 * num2
+        "/" -> if (num2 != 0.0) num1 / num2 else "Ошибка: деление на ноль"
+        else -> "Неверная операция"
+    }
+
+    println("Результат: $result")
+}
+
+// 2.Проверка на палиндром
+
+fun main() {
+    println("Проверка на палиндром")
+
+    print("Введите слово: ")
+    val word = readLine()!!
+
+    val isPalindrome = word.equals(word.reversed(), ignoreCase = true)
+
+    if (isPalindrome) {
+        println("$word является палиндромом.")
+    } else {
+        println("$word не является палиндромом.")
+    }
+}
