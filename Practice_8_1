@@ -1,0 +1,116 @@
+// 1. Сумма всех элементов списка
+fun sumOfList(numbers: List<Int>) = numbers.sum()
+
+// 2. Разность самого большого и самого маленького
+fun differenceMaxMin(numbers: List<Int>) = numbers.maxOrNull()!! - numbers.minOrNull()!!
+
+// 3. Объединение двух списков
+fun mergeLists(list1: List<Int>, list2: List<Int>) = list1 + list2
+
+// 4. Проверка на прибыльность
+fun isProfitable(prob: Double, prize: Double, pay: Double) = prob * prize > pay
+
+// 6. Проверка, что сумма двух чисел меньше 100
+fun isSumLessThan100(a: Int, b: Int) = (a + b) < 100
+
+// 7. Проверка, делится ли число на 100
+fun isDivisibleBy100(number: Int) = number % 100 == 0
+
+// 8. Количество кадров за указанное время
+fun calculateFrames(minutes: Int, fps: Int) = minutes * 60 * fps
+
+// 9. Проверка, равен ли k^k n
+fun isPowerEqual(n: Int, k: Int) = Math.pow(k.toDouble(), k.toDouble()).toInt() == n
+
+// 10. Рекурсивное повторение строки
+fun repeatString(txt: String, n: Int): String {
+    return if (n <= 0) "" else txt + repeatString(txt, n - 1)
+}
+
+// Примеры использования
+fun main() {
+    println(sumOfList(listOf(1, 2, 3, 4))) 
+    println(differenceMaxMin(listOf(1, 2, 3, 4))) 
+    println(mergeLists(listOf(1, 2), listOf(3, 4)))
+    println(isProfitable(0.5, 100.0, 40.0)) 
+    println(isSumLessThan100(30, 40)) 
+    println(isDivisibleBy100(200)) 
+    println(calculateFrames(2, 30)) 
+    println(isPowerEqual(27, 3)) 
+    println(repeatString("Hello", 3)) 
+}
+
+import kotlin.math.sqrt
+
+// 11. Функция, которая принимает уравнение и возвращает ответ.
+fun evaluateExpression(expression: String): Double {
+    return expression.split(" ").let {
+        val a = it[0].toDouble()
+        val operator = it[1]
+        val b = it[2].toDouble()
+        when (operator) {
+            "+" -> a + b
+            "-" -> a - b
+            "*" -> a * b
+            "/" -> a / b
+            else -> throw IllegalArgumentException("Unsupported operator")
+        }
+    }
+}
+
+// 12. Функция, которая возвращает слово "Google" с количеством букв "o", равным number.
+fun googleWithO(number: Int): String {
+    return "G" + "o".repeat(number) + "gle"
+}
+
+// 13. Функция, которая выводит "Привет, мир!" на экран.
+fun greet() {
+    println("Привет, мир!")
+}
+
+// 14. Функция, которая принимает два числа и возвращает их сумму.
+fun sumTwoNumbers(a: Int, b: Int) = a + b
+
+// 15. Функция, которая возвращает большее из двух чисел.
+fun maxOfTwoNumbers(a: Int, b: Int) = if (a > b) a else b
+
+// 16. Функция, которая возвращает true, если число четное.
+fun isEven(number: Int) = number % 2 == 0
+
+// 17. Функция, которая вычисляет факториал числа.
+fun factorial(n: Int): Int {
+    return if (n <= 1) 1 else n * factorial(n - 1)
+}
+
+// 18. Функция, которая проверяет, является ли число простым.
+fun isPrime(number: Int): Boolean {
+    if (number <= 1) return false
+    for (i in 2..sqrt(number.toDouble()).toInt()) {
+        if (number % i == 0) return false
+    }
+    return true
+}
+
+// 19. Функция, которая возвращает сумму чисел в массиве.
+fun sumOfArray(numbers: IntArray) = numbers.sum()
+
+// 20. Функция, которая находит и возвращает максимальное значение в массиве.
+fun maxInArray(numbers: IntArray) = numbers.maxOrNull()!!
+
+// 21. Функция, которая сортирует массив чисел в порядке возрастания.
+fun sortArray(numbers: IntArray) = numbers.sortedArray()
+
+// Примеры использования функций
+fun main() {
+    println(evaluateExpression("1 + 1")) 
+    println(googleWithO(3)) 
+    greet() 
+    println(sumTwoNumbers(5, 10)) 
+    println(maxOfTwoNumbers(5, 10)) 
+    println(isEven(4))
+    println(factorial(5)) 
+    println(isPrime(7)) 
+    println(sumOfArray(intArrayOf(1, 2, 3, 4))) 
+    println(maxInArray(intArrayOf(1, 2, 3, 4))) 
+    println(sortArray(intArrayOf(4, 2, 3, 1)).joinToString(", ")) 
+}
