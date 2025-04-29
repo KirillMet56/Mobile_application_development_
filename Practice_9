@@ -1,0 +1,110 @@
+//1. Генератор случайных чисел
+import kotlin.random.Random
+
+fun main() {
+    val randomNumbers = List(10) { Random.nextInt(1, 101) }
+    println(randomNumbers)
+}
+//2. Строковый анализатор
+fun main() {
+    val input = "Пример строки для анализа"
+    val vowels = "аеёиоуыэюяАЕЁИОУЫЭЮЯ"
+    val consonants = "бвгджзйклмнпрстфхцчшщБВГДЖЗЙКЛМНПРСТФХЦЧШЩ"
+
+    val vowelCount = input.count { it in vowels }
+    val consonantCount = input.count { it in consonants }
+
+    println("Гласные: $vowelCount, Согласные: $consonantCount")
+}
+//3. Конвертер валют
+fun main() {
+    val dollarToEuroRate = 0.85 // Примерный курс
+    println("Введите сумму в долларах:")
+    val dollars = readLine()!!.toDouble()
+    val euros = dollars * dollarToEuroRate
+    println("$dollars долларов = $euros евро")
+}
+//4. Проверка на анаграмму
+fun areAnagrams(str1: String, str2: String): Boolean {
+    return str1.toCharArray().sorted() == str2.toCharArray().sorted()
+}
+
+fun main(){
+    println(areAnagrams("слово", "оволос")) // true
+}
+//5. Нахождение простых чисел
+fun isPrime(num: Int): Boolean {
+    if (num < 2) return false
+    for (i in 2..Math.sqrt(num.toDouble()).toInt()) {
+        if (num % i == 0) return false
+    }
+    return true
+}
+
+fun main() {
+    val N = 100 // Задайте значение N
+    val primes = (2..N).filter { isPrime(it) }
+    println(primes)
+}
+//6. Сортировка строк
+fun sortStrings(strings: Array<String>): Array<String> {
+    return strings.sortedArray()
+}
+
+fun main() {
+    val strings = arrayOf("яблоко", "груша", "банан")
+    val sortedStrings = sortStrings(strings)
+    println(sortedStrings.joinToString(", "))
+}
+//7. Изменение регистра
+fun main() {
+    val input = "Привет, мир!"
+    val toggled = input.map { if (it.isUpperCase()) it.toLowerCase() else it.toUpperCase() }.joinToString("")
+    println(toggled)
+}
+//8. Игра "Угадай число"
+import kotlin.random.Random
+
+fun main() {
+    val numberToGuess = Random.nextInt(1, 101)
+    var guess: Int?
+    do {
+        println("Угадайте число от 1 до 100:")
+        guess = readLine()?.toIntOrNull()
+        when {
+            guess == null -> println("Введите корректное число.")
+            guess < numberToGuess -> println("Слишком мало!")
+            guess > numberToGuess -> println("Слишком много!")
+            else -> println("Поздравляю! Вы угадали число!")
+        }
+    } while (guess != numberToGuess)
+}
+//9. Генератор паролей
+import kotlin.random.Random
+
+fun generatePassword(length: Int): String {
+    val chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()"
+    return (1..length)
+        .map { chars.random() }
+        .joinToString("")
+}
+
+fun main() {
+    println("Введите длину пароля:")
+    val length = readLine() ?: ""
+    val password = generatePassword(length)
+    println("Сгенерированный пароль: $password")
+}
+//10. Самое длинное слово в строке
+fun longestWord(sentence: String): String {
+    // Разделяем строку на слова, игнорируя знаки препинания
+    val words = sentence.split(" ", ",", ".", "!", "?", ";", ":")
+    // Находим самое длинное слово
+    return words.filter { it.isNotEmpty() }
+                .maxByOrNull { it.length } ?: ""
+}
+
+fun main() {
+    val input = "Строка"
+    println("Самое длинное слово: ${longestWord(input)}")
+}
