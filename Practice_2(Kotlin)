@@ -1,0 +1,97 @@
+fun main() {
+    // 1. Двузначное число
+    val twoDigitNumber = 34 // Пример двузначного числа
+    val tens = twoDigitNumber / 10 // Число десятков
+    val units = twoDigitNumber % 10 // Число единиц
+    val sumTwoDigit = tens + units // Сумма цифр
+    val productTwoDigit = tens * units // Произведение цифр
+
+    println("1. Двузначное число: $twoDigitNumber")
+    println("   a) Число десятков: $tens")
+    println("   b) Число единиц: $units")
+    println("   c) Сумма цифр: $sumTwoDigit")
+    println("   d) Произведение цифр: $productTwoDigit")
+
+    // 2. Трехзначное число
+    val threeDigitNumber = 456 // Пример трехзначного числа
+    val unitsThree = threeDigitNumber % 10 // Число единиц
+    val tensThree = (threeDigitNumber / 10) % 10 // Число десятков
+    val hundreds = threeDigitNumber / 100 // Число сотен
+    val sumThreeDigit = hundreds + tensThree + unitsThree // Сумма цифр
+    val productThreeDigit = hundreds * tensThree * unitsThree // Произведение цифр
+
+    println("2. Трехзначное число: $threeDigitNumber")
+    println("   a) Число единиц: $unitsThree")
+    println("   b) Число десятков: $tensThree")
+    println("   c) Сумма цифр: $sumThreeDigit")
+    println("   d) Произведение цифр: $productThreeDigit")
+
+    // 3. Деление одного числа на другое
+    val numerator = 10.0 // Числитель
+    val denominator = 2.0 // Знаменатель
+    if (denominator != 0.0) {
+        val divisionResult = numerator / denominator
+        println("3. Деление: $numerator / $denominator = $divisionResult")
+    } else {
+        println("3. Ошибка: деление на ноль!")
+    }
+
+    // 4. Возведение числа в степень
+    val base = 2.0 // Основание
+    val exponent = 3 // Степень
+    val powerResult = Math.pow(base, exponent.toDouble())
+    println("4. Возведение в степень: $base ^ $exponent = $powerResult")
+
+    // 5. Нахождение корня числа
+    val rootNumber = 16.0 // Число
+    val rootResult = Math.sqrt(rootNumber)
+    println("5. Квадратный корень из $rootNumber = $rootResult")
+
+    // 6. Логические выражения
+    val A = true
+    val B = false
+    val C = false
+    println("6. Логические выражения с A, B, C:")
+    println("   a) A или B: ${A || B}")
+    println("   b) A и B: ${A && B}")
+    println("   c) B или C: ${B || C}")
+
+    val X = false
+    val Y = true
+    val Z = false
+    println("7. Логические выражения с X, Y, Z:")
+    println("   a) X или Z: ${X || Z}")
+    println("   b) X и Y: ${X && Y}")
+    println("   c) X и Z: ${X || Z}")
+
+    println("8. Логические выражения с A, B, C:")
+    println("   a) не A и B: ${!A && B}")
+    println("   b) A или не B: ${A || !B}")
+    println("   c) A и B или C: ${A && B || C}")
+
+    println("9. Логические выражения с X, Y, Z:")
+    println("   a) не X и Y: ${!X && Y}")
+    println("   b) X или не Y: ${X || !Y}")
+    println("   c) X или Y и Z: ${X || (Y && Z)}")
+
+    println("10. Логические выражения с X, Y, Z:")
+    println("   a) не X и Y: ${!X && Y}")
+    println("   b) X или не Y: ${X || !Y}")
+    println("   c) X или Y и Z: ${X || (Y && Z)}")
+
+    val X2 = false
+    val Y2 = false
+    val Z2 = true
+    println("11. Логические выражения с X2, Y2, Z2:")
+    println("   a) X или Y и не Z: ${X2 || (Y2 && !Z2)}")
+    println("   b) X и не Y или Z: ${X2 && !Y2 || Z2}")
+    println("   c) не X и не Y: ${!X2 && !Y2}")
+    println("   d) X и (не Y или Z): ${X2 && (!Y2 || Z2)}")
+    println("   e) не (X и Z) или Y: ${!(X2 && Z2) || Y2}")
+    println("   f) X или (не (Y или Z)): ${X2 || !(Y2 || Z2)}")
+
+    println("12. Логические выражения с A, B, C:")
+    println("   a) A или не (A и B) или C: ${A || !(A && B) || C}")
+    println("   b) не A или A и (B или C): ${!A || (A && (B || C))}")
+    println("   c) (A или B и не C) и C: ${(A || (B && !C)) && C}")
+}
